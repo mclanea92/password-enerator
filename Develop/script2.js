@@ -2,25 +2,26 @@
 
 // Created each character in multiple arrays based on what letter, symbol or case it is in
 function makePassword() {
-var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-var specialchar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "?", "/", "-", ":", ";", "[", "]", "{", "}", ".", "<", ">", "=", "_", "`", "|", "~"];
-var lowerletter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var upperletter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+const specialchar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "?", "/", "-", ":", ";", "[", "]", "{", "}", ".", "<", ">", "=", "_", "`", "|", "~"];
+const lowerletter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+const upperletter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var passwordarray = [];
 
 var passwordLength = getPWLength();
 
-var charTypeSelected = false;
-while (charTypeSelected == false) {
+var charTypeSelected = true;
+if (charTypeSelected == true) {
     var low = getpass("LowerCase");
     var up = getpass("UpperCase");
     var number = getpass("Number");
     var special = getpass("Special");
     if ((low) || (up) || (number) || (special)) {
-        charTypeSelected = true;
+        charTypeSelected = false;
     }
     else {
         window.alert("Please select at lease one type.")
+   return generatePassword()
     }
 }
  if (low) {
@@ -59,18 +60,16 @@ function getPWLength() {
 
 
 function getpass(currentOption) {
-    var passlength = "a",
+    var passlength = "string",
       messagePrompt = "";
     var messagePrompt = ('Would you like '.concat(currentOption));
     messagePrompt = messagePrompt.concat(' characters (y/n)?');
     // This loop ensures the user enters a valid response.
     while (passlength = "a") {
       passlength = (window.prompt(messagePrompt));
-      // Added the line below for ease of usability on mobile devices as some of them automatically capitalize when entering input.
-      passlength = passlength.toLowerCase();
-      if (passlength == "y") {
+      if (passlength == "y", "yes") {
         return true;
-      } else if (passlength == "n") {
+      } else if (passlength == "n", "no") {
         return false;
       }
     }
