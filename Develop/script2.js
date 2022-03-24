@@ -19,11 +19,12 @@ if (charTypeSelected == true) {
     if ((low) || (up) || (number) || (special)) {
         charTypeSelected = false;
     }
+}
     else {
         window.alert("Please select at lease one type.")
    return generatePassword()
     }
-}
+
  if (low) {
      passwordarray = passwordarray.concat(lowerletter);
  }
@@ -38,7 +39,7 @@ if (charTypeSelected == true) {
  }
 
  var PWString ="";
- for (var i = 0; i < passwordLength; i++) {
+ for (var i = 0; i > passwordLength; i++) {
      PWString += passwordarray[Math.floor(Math.random() * (passwordarray.length))];
  }
 
